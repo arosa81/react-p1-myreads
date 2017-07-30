@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import ListBooks from './ListBooks';
 import SearchBooks from './SearchBooks';
-import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from './util/BooksAPI';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +16,13 @@ class App extends Component {
   }
   updateShelf = (book, shelf) => {
     console.log(book, shelf);
-    // BooksAPI.update(book, shelf);
+    BooksAPI.update(book, shelf)
+      .then(() => {
+        book.shelf = shelf;
+        this.setState(state => ({
+          books: state.books.filter(b => b.id !== book.id).concat([ book ])
+        }))
+    })
   }
   render() {
     console.log(this.state);
