@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import ListBooks from './ListBooks';
+import { Route, Link } from 'react-router-dom';
+import BookShelf from './BookShelf';
 import SearchBooks from './SearchBooks';
 import * as BooksAPI from './util/BooksAPI';
 import './App.css';
@@ -28,16 +28,22 @@ class App extends Component {
     console.log(this.state);
     return (
       <div className='app'>
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
         <Route exact path='/' render={({ history }) => (
-          <ListBooks
+          <BookShelf
             books={this.state.books}
             onChangeShelf={this.updateShelf}
           />
         )}/>
-      <Route path='/search' render={({ history }) => (
-          <SearchBooks />
-        )}
-      />
+        <Route path='/search' render={({ history }) => (
+            <SearchBooks />
+          )}
+        />
+        <div className="open-search">
+          <Link to="/search">Add a book</Link>
+        </div>
       </div>
     )
   }
