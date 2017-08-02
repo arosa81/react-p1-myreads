@@ -38,7 +38,10 @@ class App extends Component {
           />
         )}/>
         <Route path='/search' render={({ history }) => (
-            <SearchBooks />
+            <SearchBooks
+              books={this.state.books}
+              onChangeShelf={this.updateShelf}
+            />
           )}
         />
         <div className="open-search">
