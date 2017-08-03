@@ -24,14 +24,15 @@ The app is dependent on the following technologies to install and run:
 **If the app doesn't automatically open in your default browser, navigate to http://localhost:3000**
 
 ## App Functionality
-In this application, the main page displays a list of "shelves", each of which contains a number of books. The three shelves are:
+In this application, the main page displays a list of "shelves", each of which contains a number of books.
+- The three shelves are:
   - Currently Reading
   - Want to Read
   - Read
 
-* Click on the control attached to each book and select the shelf that you would like to move the book to
-* Click on the `+` icon to search for additional books.<br>
+- Click on the control attached to each book and select the shelf that you would like to move the book to
+- Click on the `+` icon to search for additional books.<br>
   The available search terms include:
     `'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'History', 'History', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Program Javascript', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'`
-* Any books that are assigned new shelfs will be displayed on the main page.
-* Click on the back '<-' button to return to the main page. All app activity is saved.
+- Any books that are assigned new shelfs will be displayed on the main page.
+- Click on the back '<-' button to return to the main page. All app activity is saved.
