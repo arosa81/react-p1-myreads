@@ -23,9 +23,9 @@ class Book extends Component {
           <div className="book-top">
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks !== undefined ? book.imageLinks.thumbnail: 'http://via.placeholder.com/128x192'})` }}></div>
             <div className="book-shelf-changer">
-              /*
+              {/*
                 On event change invoke the updateShelf function from App component.
-              */
+              */}
               <select value={book.shelf} onChange={(event) => onChangeShelf(book, event.target.value)}>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>

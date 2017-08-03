@@ -36,18 +36,18 @@ class  BookShelf extends Component {
       <div>
         <div className="list-books">
           <div className="list-books-content">
-            /*
+            {/*
               Mapping through shelf array to create shelf DOM structures.
-            */
+            */}
             {shelfs.map((shelf, i) => (
               <div key={i} className="bookshelf">
                 <h2 className="bookshelf-title">{shelf.title}</h2>
                 <div className="bookshelf-books">
                   <ol className="books-grid">
-                    /*
+                    {/*
                       Mapping through books prop, filtering based on the shelf
                       that they belong to, and adding Book element to DOM.
-                    */
+                    */}
                     {books.sort(sortBy('title'))
                       .filter(book => book.shelf === shelf.name)
                         .map(book => (
