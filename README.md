@@ -25,9 +25,9 @@ The app is dependent on the following technologies to install and run:
 
 ## App Functionality
 In this application, the main page displays a list of "shelves", each of which contains a number of books. The three shelves are:
-  `* Currently Reading
-   * Want to Read
-   * Read`
+  ** Currently Reading
+  ** Want to Read
+  ** Read
 
 * Click on the control attached to each book and select the shelf that you would like to move the book to
 * Click on the `+` icon to search for additional books.<br>
