@@ -9,13 +9,26 @@ class App extends Component {
   state = {
     books: [],
   }
+
+  /**
+  * @description React lifecycle event that fetches all books from DB.
+  *              A promise returns books and sets the state of books array.
+  */
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books });
     })
+    .catch(e => { console.warn('There was a problem querying the database. Please try later.'); })
   }
+
+  /**
+  * @description Updates a book's shelf value.
+  *              Makes a request to DB, sets local book shelf value to new one,
+  *              filters out same book in state and replaces it with updated local book.
+  * @param {object} book - The book object
+  * @param {string} shelf - The book shelf category
+  */
   updateShelf = (book, shelf) => {
-    console.log(book, shelf);
     BooksAPI.update(book, shelf)
       .then(() => {
         book.shelf = shelf;
@@ -24,8 +37,11 @@ class App extends Component {
         }))
     })
   }
+
+  /**
+  * @description Render App component to DOM. Composing subcomponents via Routes.
+  */
   render() {
-    console.log(this.state);
     return (
       <div className='app'>
         <div className="list-books-title">

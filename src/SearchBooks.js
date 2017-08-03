@@ -2,42 +2,52 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from './util/BooksAPI';
-import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 import Book from './Book.js'
 
 class  SearchBooks extends Component {
+  /*
+    Validating for correct data types that is passed to component
+  */
   static propTypes = {
     books: PropTypes.array,
     onChangeShelf: PropTypes.func.isRequired,
   }
+
   state = {
     query: '',
     books: []
   }
+
+  /**
+  * @description Updates search query and fetches books based on search term.
+  * @param {string} query - Inputted search query
+  */
   updateQuery = (query) => {
     if (query) {
       this.setState({ query: query.trim() });
       BooksAPI.search(query)
         .then(books => {
-          if (books.error) {
-            books = [];
-          }
-          console.log('searched books', books);
+          /*
+            for each book in search response:
+              1. filter for matching book ids in book shelf elements
+              2. assign it's shelf state to queried books array
+          */
           books.map(book => (this.props.books.filter(b => b.id === book.id)
                               .map(b => book.shelf = b.shelf)))
           this.setState({ books });
-      })
+        })
+        .catch(e => {
+          console.warn('query returned no books: ', e.response);
+          this.setState({ books: [] })
+        })
     } else {
       this.setState({ query: '', books: [] })
     }
   }
   render() {
-    const { books, onChangeShelf } = this.props;
-    const { query, queriedBooks } = this.state;
-    let showingBooks;
-
-
+    // object destructuring
+    const { onChangeShelf } = this.props;
     return (
       <div>
         <div className="search-books">
@@ -59,8 +69,7 @@ class  SearchBooks extends Component {
           <div className="search-books-results">
             <ol className="books-grid">
               {this.state.books.sort(sortBy('title'))
-                //.filter(book => book.shelf === 'none')
-                  .map(book => (
+                .map(book => (
                   <Book
                     key={book.id}
                     book={book}
